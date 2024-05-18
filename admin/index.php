@@ -1,8 +1,6 @@
 <?php
 include('header.php');
 ?>
-
-
 <div id="layoutSidenav_content">
     <main>
         <div class="page-header pb-10">
@@ -16,10 +14,8 @@ include('header.php');
             </div>
         </div>
 
-        <!--Table-->
         <div class="container-fluid mt-n10">
 
-            <!--Card Primary-->
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
@@ -109,21 +105,14 @@ include('header.php');
 
             </div>
 
-            <!--Card Primary-->
-
-
         </div>
-        <!--End Table-->
 
     </main>
 
-    <!--start footer-->
     <?php include('footer.php') ?>
-    <!--end footer-->
 </div>
 </div>
 
-<!--Script JS-->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>
