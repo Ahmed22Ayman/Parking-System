@@ -5,7 +5,6 @@ $errors = array();
 
 //add department
 if (isset($_POST['submit'])) {
-    //Get the course data
     $name = htmlentities($_POST['name']);
     $indexnumber = htmlentities($_POST['indexnumber']);
     $password = htmlentities($_POST['password']);
@@ -34,15 +33,12 @@ if (isset($_POST['submit'])) {
 
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);
     $userCount = $stmt->rowCount();
-    //$stmt->close();
 
     if ($userCount > 0) {
         $errors['indexFound'] = "Index Number is used already";
     }
 
     if (count($errors) === 0) {
-
-        //encrypt password
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $addSecurityQuery = "INSERT INTO admin(indexnumber, name, password)
@@ -52,13 +48,11 @@ if (isset($_POST['submit'])) {
 
         $addSecurityStmt = $conn->prepare($addSecurityQuery);
 
-        //Bind the field to PDO parameters
         $addSecurityStmt->bindParam('s', $indexnumber, PDO::PARAM_STR);
         $addSecurityStmt->bindParam('s', $name, PDO::PARAM_STR);
         $addSecurityStmt->bindParam('s', $password, PDO::PARAM_STR);
         $addSecurityStmt->bindParam('s', $usertype, PDO::PARAM_STR);
 
-        //execute pdo query
         $addSecurityStmt->execute(
             [
                 'indexnumber' => $indexnumber,
@@ -68,7 +62,6 @@ if (isset($_POST['submit'])) {
             ]
         );
 
-        //check if Administrator addition was successful
         $lastInsertId = $conn->lastInsertId();
 
         if ($lastInsertId) {
@@ -154,7 +147,6 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div>
-        <!--End Form-->
 
         <!--Table-->
         <div class="container-fluid ">
@@ -208,13 +200,10 @@ if (isset($_POST['submit'])) {
 
 
 
-    <!--start footer-->
     <?php include('footer.php') ?>
-    <!--end footer-->
 </div>
 </div>
 
-<!--Script JS-->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>
