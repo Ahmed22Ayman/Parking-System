@@ -88,7 +88,6 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div>
-        <!--End Form-->
 
         <!--Table-->
         <div class="container-fluid ">
@@ -142,15 +141,11 @@ if (isset($_POST['submit'])) {
 
     </main>
 
-
-
-    <!--start footer-->
     <?php include('footer.php') ?>
-    <!--end footer-->
+
 </div>
 </div>
 
-<!--Script JS-->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>

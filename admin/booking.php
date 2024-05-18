@@ -1,9 +1,4 @@
-<?php
-include('header.php');
-
-
-?>
-
+<?php include('header.php');?>
 
 <div id="layoutSidenav_content">
     <main>
@@ -81,23 +76,15 @@ include('header.php');
                 </div>
             </div>
         </div>
-        <!--End Form-->
-
-
 
     </main>
 
-
-
-    <!--start footer-->
     <?php include('footer.php') ?>
-    <!--end footer-->
 
 
 </div>
 </div>
 
-<!--Script JS-->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>

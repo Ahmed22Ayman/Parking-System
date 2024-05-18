@@ -1,9 +1,8 @@
 <?php
 include('header.php');
 $errors = array();
-// get the id of the user to be updated
 $departmentID = $_GET['id'];
-// Get the details of the faculty
+
 $getDepartment = "Select * from department WHERE id=:departmentID LIMIT 1";
 $stmt = $conn->prepare($getDepartment);
 $stmt->bindParam("s", $departmentID, PDO::PARAM_STR);
@@ -20,7 +19,6 @@ if ($userCount > 0) {
 
 //update admin info
 if (isset($_POST['submit'])) {
-    //get all the data from the field
     $name = htmlentities($_POST['name']);
     $faculty = htmlentities($_POST['faculty']);
 
@@ -32,7 +30,6 @@ if (isset($_POST['submit'])) {
    
 
     if (count($errors) === 0) {
-        //Lets edit the details
         $SQL = "UPDATE department SET name=:name, faculty=:faculty WHERE id=:departmentID";
         $stmt = $conn->prepare($SQL);
         $stmt->bindParam('s', $name, PDO::PARAM_STR);
