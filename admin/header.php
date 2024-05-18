@@ -72,11 +72,6 @@
                             Staff
                         </a>
 
-                        <a class="nav-link" href="security.php">
-                            <div class="nav-link-icon"><i data-feather="user"></i></div>
-                            Security
-                        </a>
-
                         <a class="nav-link" href="faculty.php">
                             <div class="nav-link-icon"><i data-feather="chevrons-up"></i></div>
                             Faculty
