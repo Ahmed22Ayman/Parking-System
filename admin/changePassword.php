@@ -97,3 +97,47 @@ if (isset($_POST['submit'])) {
                                                         unset($_SESSION['alert-class']);
                                                         ?></strong>
                                         </div>
+                                        <?php endif; ?>
+                                </div>
+
+                                <div class="col-12 form-group">
+                                    <label for="user-name" class="text-primary">Old Password </label>
+                                    <input type="password" name="oldpassword" class="form-control" placeholder="Old Password">
+                                </div>
+
+                                <div class="col-12 form-group">
+                                    <label for="user-name" class="text-primary">New Password </label>
+                                    <input type="password" name="newpassword" class="form-control" placeholder="New Password">
+                                </div>
+
+                                <div class="col-12 form-group">
+                                    <label for="user-name" class="text-primary">Confirm New Password </label>
+                                    <input type="password" name="confirmnewpassword" class="form-control" placeholder="Confirm New Password">
+                                </div>
+
+                                <div class="col-12 form-group">
+                                    <div class="col-12">
+                                        <button class="btn btn-warning mr-2 my-1 form-control" type="submit" name="submit">Change Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!--End Form-->
+
+    </main>
+
+</div>
+
+<!--Script JS-->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
