@@ -76,4 +76,32 @@ include('header.php');
                                 } ?>
                             </tbody>
                         </table>
-                    </div>
+                    </div>    </div>
+            </div>
+        </div>
+        <!--End Form-->
+
+
+        <!--Book from here::Table-->
+        <div class="container-fluid ">
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <span>All Parking Slot</span>
+
+                </div>
+
+                <div class="card-body">
+                    <div class="datatable table-responsive">
+                        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Location</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Book / Reserve</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
