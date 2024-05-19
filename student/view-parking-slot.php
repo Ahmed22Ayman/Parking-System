@@ -26,7 +26,7 @@ include('header.php');
             <div class="card mb-4">
                 <div class="card-header">
                     <span>All Parking Slot</span>
-                    <!-- Button trigger modal -->
+                    
                     <button type="button" class="btn btn-primary modalButton" data-toggle="modal" data-target="#bookedModal">
                         Booked Space
                     </button>
