@@ -54,3 +54,46 @@ if (isset($_POST['submit'])) {
          } 
     }
 }
+?>
+
+<div id="layoutSidenav_content">
+    <main>
+        <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+            <div class="container-fluid">
+                <div class="page-header-content">
+                    <h1 class="page-header-title">
+                        <div class="page-header-icon"><i data-feather="edit-3"></i></div>
+                        <span>Manage Profile</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <!--Start Form-->
+        <div class="container-fluid mt-n10">
+            <div class="card mb-4">
+                <div class="card-header">Change Password</div>
+                <div class="card-body">
+                    <form method="POST">
+
+
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="text-center">
+                                    <?php
+                                    if (count($errors) > 0) :
+                                    ?>
+                                        <div class="alert alert-danger">
+                                            <?php foreach ($errors as $error) : ?>
+                                                <li><?php echo $error; ?></li><br>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if (isset($_SESSION['message'])) : ?>
+                                        <div class="alert <?php echo $_SESSION['alert-class']; ?>">
+                                            <strong> <?php echo $_SESSION['message'];
+                                                        unset($_SESSION['message']);
+                                                        unset($_SESSION['alert-class']);
+                                                        ?></strong>
+                                        </div>
