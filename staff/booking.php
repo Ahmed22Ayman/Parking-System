@@ -36,4 +36,44 @@ include('header.php');
                                     <th>Release Space</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody> <?php
+                                $sql = "SELECT * FROM booking WHERE status='booked' AND indexnumber=:indexnumber";
+                                $query = $conn->prepare($sql);
+                                $query->bindParam('s', $indexnumber, PDO::PARAM_STR);
+                                $query->execute(
+                                    [
+                                        'indexnumber' => $indexnumber,
+                                    ]
+                                );
+                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                $rowCount = $query->rowCount();
+
+                                if ($rowCount <= 0) {
+                                    echo '<div class="alert alert-primary" role="alert">
+                                            You have not booked a space yet! 
+                                        </div>';
+                                }
+
+                                if ($rowCount > 0) {
+                                    foreach ($results as $results) {
+                                ?>
+                                        <tr>
+                                            <td><?php echo htmlentities($results->indexnumber) ?></td>
+                                            <td><?php echo htmlentities($results->carnumber) ?></td>
+                                            <td><?php echo htmlentities($results->parking_lot) ?></td>
+                                            <td><?php echo htmlentities($results->contact) ?></td>
+                                            <td><?php echo htmlentities($results->parking_time) ?></td>
+                                            <td>
+                                                <div class="badge badge-success">
+                                                    <?php echo htmlentities($results->status) ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-info btn-icon" href="releaseSpace.php?id=<?php echo htmlentities($results->id);?>"><i data-feather="slack"></i></a>
+                                            </td>
+                                        </tr>
+                                <?php }
+                                } ?>
+                            </tbody>
+                        </table>
+                    </div>
