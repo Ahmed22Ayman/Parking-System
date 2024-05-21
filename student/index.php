@@ -83,8 +83,7 @@
 
 
         </div>
-        <!--End Table-->
-
+        
     </main>
 
     <!--start footer-->
