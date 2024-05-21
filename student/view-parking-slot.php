@@ -90,7 +90,7 @@ include('header.php');
     <?php include('footer.php') ?>
     <!--end footer-->
 
-    <!-- Modal -->
+    
     <div class="modal fade" id="bookedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
