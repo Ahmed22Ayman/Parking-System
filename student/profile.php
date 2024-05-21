@@ -1,6 +1,12 @@
 <?php
 include('header.php');
 
+$getname = '';
+$getcontact = '';
+$getdepartment = '';
+$getfaculty = '';
+
+
 // Get the details of the student
 $getStudent = "Select * from student WHERE indexnumber=:indexnumber LIMIT 1";
 $stmt = $conn->prepare($getStudent);

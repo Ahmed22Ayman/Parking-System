@@ -1,13 +1,21 @@
 <?php
 include('header.php');
 
-// Get the details of the student
-$getStudent = "Select * from student WHERE indexnumber=:indexnumber LIMIT 1";
-$stmt = $conn->prepare($getStudent);
-$stmt->bindParam("s", $id, PDO::PARAM_STR);
+$getname = '';
+$getcontact = '';
+$getdepartment = '';
+$getfaculty = '';
+$errors = [];
+
+// Ensure that the $indexnumber variable is set correctly
+$indexnumber = $_SESSION['indexnumber']; // Assuming you're storing it in session
+
+// Get the details of the staff
+$getStaff = "SELECT * FROM staff WHERE indexnumber=:indexnumber LIMIT 1";
+$stmt = $conn->prepare($getStaff);
 $stmt->execute(['indexnumber' => $indexnumber]);
 
-//Get the result in an array
+// Get the result in an array
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $userCount = $stmt->rowCount();
 
@@ -16,47 +24,45 @@ if ($userCount > 0) {
     $getcontact = $row['contact'];
     $getdepartment = $row['department'];
     $getfaculty = $row['faculty'];
+} else {
+    // Handle case where no staff is found
+    $errors[] = "No staff found with the provided index number.";
 }
 
-//update student info
+// Update staff info
 if (isset($_POST['submit'])) {
-    //get all the data from the field
+    // Get all the data from the form fields
     $name = htmlentities($_POST['name']);
     $contact = htmlentities($_POST['contact']);
 
-    //validate all the fields
+    // Validate form fields
     if (empty($name)) {
-        $errors['name'] = "Name Is Required";
+        $errors['name'] = "Name is required";
     }
 
     if (empty($contact)) {
-        $errors['contact'] = "Contact Is Required";
+        $errors['contact'] = "Contact is required";
     }
 
     if (count($errors) === 0) {
-        //Lets edit the details
-        $SQL = "UPDATE student SET name=:name,contact=:contact WHERE indexnumber=:indexnumber";
+        // Let's edit the details
+        $SQL = "UPDATE staff SET name=:name, contact=:contact WHERE indexnumber=:indexnumber";
         $stmt = $conn->prepare($SQL);
-        $stmt->bindParam('s', $name, PDO::PARAM_STR);
-        $stmt->bindParam('s', $indexnumber, PDO::PARAM_STR);
-        $stmt->bindParam('s', $contact, PDO::PARAM_STR);
-
         $isExecuted = $stmt->execute([
             'name' => $name,
-            'indexnumber' => $indexnumber,
-            'contact' => $contact
+            'contact' => $contact,
+            'indexnumber' => $indexnumber
         ]);
 
         if ($isExecuted) {
-            $_SESSION['message'] = $indexnumber . ", Your Profile Has Been Updated";
+            $_SESSION['message'] = "$indexnumber, your profile has been updated";
             $_SESSION['alert-class'] = "alert alert-success";
         } else {
-            $_SESSION['message'] = $indexnumber . ", Your Profile Failed To Be Updated";
-            $_SESSION['alert-class'] = "alert alert-success";
+            $_SESSION['message'] = "$indexnumber, your profile failed to be updated";
+            $_SESSION['alert-class'] = "alert alert-danger";
         }
     }
 }
-
 ?>
 
 <div id="layoutSidenav_content">
