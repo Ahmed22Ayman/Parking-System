@@ -31,13 +31,13 @@ include('header.php');
                                 <tr>
                                     <th>Index Number </th>
                                     <th>Car Number </th>
-                                    <th>Timestamp </th>
+                                    <th>Parking Time </th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <?php
-                                $sql = "SELECT * FROM transactionlog";
+                                $sql = "SELECT * FROM booking";
                                 $query = $conn->prepare($sql);
                                 $query->execute(
                                    
@@ -57,7 +57,7 @@ include('header.php');
                                         <tr>
                                             <td><?php echo htmlentities($results->indexnumber) ?></td>
                                             <td><?php echo htmlentities($results->carnumber) ?></td>
-                                            <td><?php echo htmlentities($results->time) ?></td>
+                                            <td><?php echo htmlentities($results->parking_time) ?></td>
                                             
                                            
                                         </tr>

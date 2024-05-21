@@ -99,6 +99,9 @@ if (isset($_POST['submit'])) {
             $_SESSION['alert-class'] = "alert alert-danger";
         }
     }
+    else{
+        echo "there's erorrs";
+    }
 }
 
 
