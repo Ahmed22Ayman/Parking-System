@@ -25,7 +25,7 @@ if ($userCount > 0) {
 $_SESSION['message'] =  "Are you sure of releasing parking space??";
 $_SESSION['alert-class'] = "alert alert-warning";
 
-//############################################
+
 //codes to release space
 if (isset($_POST['submit'])) {
 
