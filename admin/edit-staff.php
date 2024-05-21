@@ -1,17 +1,13 @@
 <?php
 include('header.php');
-
-$getname = '';
-$getcontact = '';
-$getdepartment = '';
-$getfaculty = '';
-
-
-// Get the details of the student
-$getStudent = "Select * from student WHERE indexnumber=:indexnumber LIMIT 1";
-$stmt = $conn->prepare($getStudent);
-$stmt->bindParam("s", $id, PDO::PARAM_STR);
-$stmt->execute(['indexnumber' => $indexnumber]);
+$errors = array();
+// get the id of the user to be updated
+$staffid = $_GET['id'];
+// Get the details of the staff
+$getStaff = "Select * from staff WHERE id=:staffid LIMIT 1";
+$stmt = $conn->prepare($getStaff);
+$stmt->bindParam("s", $staffid, PDO::PARAM_STR);
+$stmt->execute(['staffid' => $staffid]);
 
 //Get the result in an array
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -20,11 +16,11 @@ $userCount = $stmt->rowCount();
 if ($userCount > 0) {
     $getname = $row['name'];
     $getcontact = $row['contact'];
-    $getdepartment = $row['department'];
+    $getdept = $row['department'];
     $getfaculty = $row['faculty'];
 }
 
-//update student info
+//update admin info
 if (isset($_POST['submit'])) {
     //get all the data from the field
     $name = htmlentities($_POST['name']);
@@ -35,29 +31,29 @@ if (isset($_POST['submit'])) {
         $errors['name'] = "Name Is Required";
     }
 
-    if (empty($contact)) {
-        $errors['contact'] = "Contact Is Required";
+    if (empty($name)) {
+        $errors['name'] = "Contact Is Required";
     }
 
     if (count($errors) === 0) {
         //Lets edit the details
-        $SQL = "UPDATE student SET name=:name,contact=:contact WHERE indexnumber=:indexnumber";
+        $SQL = "UPDATE staff SET name=:name, contact=:contact WHERE id=:staffid";
         $stmt = $conn->prepare($SQL);
         $stmt->bindParam('s', $name, PDO::PARAM_STR);
-        $stmt->bindParam('s', $indexnumber, PDO::PARAM_STR);
         $stmt->bindParam('s', $contact, PDO::PARAM_STR);
+        $stmt->bindParam('s', $staffid, PDO::PARAM_STR);
 
         $isExecuted = $stmt->execute([
             'name' => $name,
-            'indexnumber' => $indexnumber,
-            'contact' => $contact
+            'contact' => $contact,
+            'staffid' => $staffid
         ]);
 
         if ($isExecuted) {
-            $_SESSION['message'] = $indexnumber . ", Your Profile Has Been Updated";
+            $_SESSION['message'] = $indexnumber . ", Staff Details Has Been Updated";
             $_SESSION['alert-class'] = "alert alert-success";
         } else {
-            $_SESSION['message'] = $indexnumber . ", Your Profile Failed To Be Updated";
+            $_SESSION['message'] = $indexnumber . ", Staff Profile Failed To Be Updated";
             $_SESSION['alert-class'] = "alert alert-success";
         }
     }
@@ -72,7 +68,7 @@ if (isset($_POST['submit'])) {
                 <div class="page-header-content">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i data-feather="edit-3"></i></div>
-                        <span>Manage Profile</span>
+                        <span>Edit Staff Profile</span>
                     </h1>
                 </div>
             </div>
@@ -81,7 +77,7 @@ if (isset($_POST['submit'])) {
         <!--Start Form-->
         <div class="container-fluid mt-n10">
             <div class="card mb-4">
-                <div class="card-header">Your Details</div>
+                <div class="card-header">Current Staff Details</div>
                 <div class="card-body">
                     <form method="POST">
 
@@ -113,28 +109,27 @@ if (isset($_POST['submit'])) {
 
                             <br>
 
-                            <label for="index">Contact</label>
-                            <input type="text" name="contact" id="contact" class="form-control" value="<?php echo $getcontact; ?>">
+                            <label for="user-name">Contact </label>
+                            <input type="text" name="contact" id="contact" class="form-control" value="<?php echo $getcontact ?>">
+
                             <br>
 
-                            <label for="index">Faculty</label>
-                            <input type="text" name="faculty" id="faculty" class="form-control" disabled value="<?php echo $getfaculty ?>">
+                            <label for="user-name">Faculty </label>
+                            <input type="text" name="faculty" id="faculty" readonly class="form-control" value="<?php echo $getfaculty ?>">
+
                             <br>
 
-                            <label for="index">Department</label>
-                            <input type="text" name="department" id="department" class="form-control" disabled value="<?php echo $getdepartment ?>">
+                            <label for="user-name">Department </label>
+                            <input type="text" name="department" id="department" readonly class="form-control" value="<?php echo $getdept ?>">
+
                             <br>
 
                         </div>
 
                         <br>
                         <div class="row col-md-6 offset-md-3">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <button class="btn btn-primary mr-2 my-1 form-control" type="submit" name="submit">Edit Profile</button>
-                            </div>
-
-                            <div class="col-6">
-                                <a class="btn btn-success mr-2 my-1 form-control" href="changePassword.php">Change Password</a>
                             </div>
                         </div>
 
