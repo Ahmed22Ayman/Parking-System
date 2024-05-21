@@ -25,7 +25,7 @@ if ($userCount > 0) {
 $_SESSION['message'] =  "Are you sure of releasing parking space??";
 $_SESSION['alert-class'] = "alert alert-warning";
 
-//############################################
+
 //codes to release space
 if (isset($_POST['submit'])) {
 
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
 
-        <!--Start Form-->
+       
         <div class="container-fluid mt-n10">
             <div class="card mb-4">
                 <div class="card-header">Your Booked Space</div>
@@ -130,6 +130,6 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div>
-        <!--End Form-->
+        
 
     </main>

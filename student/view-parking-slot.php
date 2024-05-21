@@ -90,7 +90,7 @@ include('header.php');
     <?php include('footer.php') ?>
     <!--end footer-->
 
-    <!-- Modal -->
+    
     <div class="modal fade" id="bookedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -159,7 +159,7 @@ include('header.php');
 </div>
 </div>
 
-<!--Script JS-->
+
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>
