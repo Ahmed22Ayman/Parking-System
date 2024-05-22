@@ -2,7 +2,7 @@
 include('header.php');
 
 
-//update student info
+
 if (isset($_POST['submit'])) {
     //get all the data from the field
     $oldpassword = htmlentities($_POST['oldpassword']);
