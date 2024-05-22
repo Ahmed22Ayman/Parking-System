@@ -145,7 +145,7 @@ if(isset($_POST['submit'])){
 
                         <div class="row col-12">
                             <div class="col-4 form-group">
-                                <label for="user-name">Staff Name </label>
+                                <label for="user-name">Student Name </label>
                                 <input type="text" name="name" id="name" class="form-control">
                             </div>
 
