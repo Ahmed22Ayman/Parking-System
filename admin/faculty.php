@@ -83,7 +83,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                 $sql = "SELECT * FROM faculty";
                                 $query = $conn->prepare($sql);
@@ -101,7 +100,7 @@
                                                 <a class="btn btn-blue btn-icon" href="edit-faculty.php?id=<?php echo htmlentities($results->id); ?>"><i data-feather="edit"></i></a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-red btn-icon" href="#?id=<?php echo htmlentities($results->id); ?>"><i data-feather="delete"></i></a>
+                                                <a class="btn btn-red btn-icon" href="delete-faculty.php?id=<?php echo htmlentities($results->id); ?>" onclick="return confirm('Are you sure you want to delete this faculty member?');"><i data-feather="delete"></i></a>
                                             </td>
                                         </tr>
                                 <?php }
