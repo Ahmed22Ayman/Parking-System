@@ -236,7 +236,6 @@ if(isset($_POST['submit'])){
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                 $sql = "SELECT * FROM student";
                                 $query = $conn->prepare($sql);
@@ -253,10 +252,10 @@ if(isset($_POST['submit'])){
                                             <td><?php echo htmlentities($results->contact) ?></td>
                                             <td><?php echo htmlentities($results->department) ?></td>
                                             <td>
-                                                <a class="btn btn-blue btn-icon" href="deleteCourse.php?id=<?php echo htmlentities($results->id); ?>"><i data-feather="edit"></i></a>
+                                                <a class="btn btn-blue btn-icon" href="edit-student.php?id=<?php echo htmlentities($results->id); ?>"><i data-feather="edit"></i></a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-red btn-icon" href="#?id=<?php echo htmlentities($results->id); ?>"><i data-feather="delete"></i></a>
+                                                <a class="btn btn-red btn-icon" href="delete-student.php?id=<?php echo htmlentities($results->id); ?>" onclick="return confirm('Are you sure you want to delete this student?');"><i data-feather="delete"></i></a>
                                             </td>
                                         </tr>
                                 <?php }
