@@ -14,10 +14,10 @@
             </div>
         </div>
 
-        <!--Table-->
+        
         <div class="container-fluid mt-n10">
 
-            <!--Card Primary-->
+            
             <div class="row">
                 <div class="col-xl-4 col-md-6">
                     <div class="card bg-primary text-white mb-4">
@@ -92,7 +92,6 @@
 </div>
 </div>
 
-<!--Script JS-->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>

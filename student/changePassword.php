@@ -2,7 +2,7 @@
 include('header.php');
 
 
-//update student info
+
 if (isset($_POST['submit'])) {
     //get all the data from the field
     $oldpassword = htmlentities($_POST['oldpassword']);
@@ -136,7 +136,6 @@ if (isset($_POST['submit'])) {
 
 </div>
 
-<!--Script JS-->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>
