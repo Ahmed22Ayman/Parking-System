@@ -106,11 +106,6 @@
                             <div class="nav-link-icon"><i data-feather="mail"></i></div>
                             Transactions
                         </a>
-
-                        <a class="nav-link" href="profile.php">
-                            <div class="nav-link-icon"><i data-feather="user"></i></div>
-                            Profile
-                        </a>
                     </div>
                 </div>
 
