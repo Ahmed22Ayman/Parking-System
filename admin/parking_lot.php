@@ -105,7 +105,6 @@ if (isset($_POST['submit'])) {
             <div class="card mb-4">
                 <div class="card-header">Create Parking Slot</div>
                 <div class="card-body">
-
                     <div class="text-center">
                         <?php
                         if (count($errors) > 0) :
@@ -114,11 +113,9 @@ if (isset($_POST['submit'])) {
                                 <?php foreach ($errors as $error) : ?>
                                     <li><?php echo $error; ?></li><br>
                                 <?php endforeach; ?>
-
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-
                             </div>
                         <?php endif; ?>
 
@@ -131,11 +128,9 @@ if (isset($_POST['submit'])) {
                                     unset($_SESSION['alert-class']);
                                     ?>
                                 </strong>
-
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-
                             </div>
                         <?php endif; ?>
                     </div>
@@ -145,12 +140,10 @@ if (isset($_POST['submit'])) {
                                 <label for="user-name">Parking Mark / Name</label>
                                 <input type="text" name="name" id="name" class="form-control">
                             </div>
-
                             <div class="col-4 form-group">
                                 <label for="user-name">Location</label>
                                 <input type="text" name="location" id="location" class="form-control">
                             </div>
-
                             <div class="col-4 form-group">
                                 <label for="user-name">Parking Type </label>
                                 <select class="form-control" name="type" id="type">
@@ -159,9 +152,7 @@ if (isset($_POST['submit'])) {
                                     <option value="lecturer">Lecturer</option>
                                 </select>
                             </div>
-
                         </div>
-
                         <div class="row col-12">
                             <div class="col-md-4 offset-md-4">
                                 <button class="btn btn-primary mr-2 my-1 form-control" type="submit" name="submit">Create now!</button>
@@ -175,7 +166,6 @@ if (isset($_POST['submit'])) {
 
         <!--Table-->
         <div class="container-fluid ">
-
             <div class="card mb-4">
                 <div class="card-header">All Parking Slot</div>
                 <div class="card-body">
@@ -192,7 +182,6 @@ if (isset($_POST['submit'])) {
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                 $sql = "SELECT * FROM parking_lot";
                                 $query = $conn->prepare($sql);
@@ -214,7 +203,9 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                             </td>
                                             <td>
-                                                <a class="btn btn-red btn-icon" href="#?id=<?php echo htmlentities($results->id); ?>"><i data-feather="delete"></i></a>
+                                                <a class="btn btn-red btn-icon" href="delete-parking-lot.php?id=<?php echo htmlentities($results->id); ?>" onclick="return confirm('Are you sure you want to delete this parking slot?');">
+                                                    <i data-feather="delete"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                 <?php }
@@ -224,9 +215,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
             </div>
-
         </div>
-
     </main>
 
 
