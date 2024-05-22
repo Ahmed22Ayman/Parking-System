@@ -242,7 +242,6 @@ if (isset($_POST['submit'])) {
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                 $sql = "SELECT * FROM staff";
                                 $query = $conn->prepare($sql);
@@ -262,7 +261,7 @@ if (isset($_POST['submit'])) {
                                                 <a class="btn btn-blue btn-icon" href="edit-staff.php?id=<?php echo htmlentities($results->id); ?>"><i data-feather="edit"></i></a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-red btn-icon" href="#?id=<?php echo htmlentities($results->id); ?>"><i data-feather="delete"></i></a>
+                                                <a class="btn btn-red btn-icon" href="delete-staff.php?id=<?php echo htmlentities($results->id); ?>" onclick="return confirm('Are you sure you want to delete this staff member?');"><i data-feather="delete"></i></a>
                                             </td>
                                         </tr>
                                 <?php }
