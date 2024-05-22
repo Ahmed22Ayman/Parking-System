@@ -1,6 +1,8 @@
 <?php
 include('header.php');
 
+$errors = array(); // Initialize $errors as an empty array
+
 //get the parking name from the url
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
