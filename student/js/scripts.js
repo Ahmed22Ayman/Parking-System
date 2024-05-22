@@ -6,7 +6,7 @@
     (function($) {
   "use strict";
 
-  // Enable Bootstrap tooltips via data-attributes globally
+  
   $('[data-toggle="tooltip"]').tooltip();
 
   // Enable Bootstrap popovers via data-attributes globally
