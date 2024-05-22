@@ -107,7 +107,6 @@ if (isset($_POST['submit'])) {
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                 $sql = "SELECT * FROM department";
                                 $query = $conn->prepare($sql);
@@ -126,7 +125,7 @@ if (isset($_POST['submit'])) {
                                                 <a class="btn btn-blue btn-icon" href="edit-department.php?id=<?php echo htmlentities($results->id); ?>"><i data-feather="edit"></i></a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-red btn-icon" href="#?id=<?php echo htmlentities($results->id); ?>"><i data-feather="delete"></i></a>
+                                                <a class="btn btn-red btn-icon" href="delete-department.php?id=<?php echo htmlentities($results->id); ?>" onclick="return confirm('Are you sure you want to delete this department?');"><i data-feather="delete"></i></a>
                                             </td>
                                         </tr>
                                 <?php }
